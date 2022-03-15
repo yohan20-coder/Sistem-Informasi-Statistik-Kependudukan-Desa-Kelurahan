@@ -5,7 +5,7 @@
 Programmer dalam megolah data-data statistik kependudukan desa dan kelurahan**
 
 *******************
-**1. Halaman Tabel Statistik*
+**1. Halaman Tabel Statistik**
 *******************
 ![screenshot-localhost-2022 03 15-21_22_21](https://user-images.githubusercontent.com/76047090/158401379-5580713b-dd29-451e-bf01-015795f09823.png)
 
