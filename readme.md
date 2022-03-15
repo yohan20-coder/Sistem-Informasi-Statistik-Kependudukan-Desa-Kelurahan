@@ -1,7 +1,7 @@
 ### Sistem-Informasi-Statistik-Kependudukan-Desa-Kelurahan
 
 
-**Aplikasi Ini Merupakan Aplikasi Yang dibuat untuk Memudahkan
+**Aplikasi Ini Merupakan Pengguna Yang dibuat untuk Memudahkan
 Programmer dalam megolah data-data statistik kependudukan desa dan kelurahan**
 
 *******************
