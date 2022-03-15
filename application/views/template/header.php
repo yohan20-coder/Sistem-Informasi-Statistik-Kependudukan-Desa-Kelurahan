@@ -33,5 +33,15 @@
 
 <body id="page-top">
 
+<style>
+        table th{
+            background: #6d057e;
+            color: wheat;
+        }
+        table td {
+            color: black;
+        }
+    </style>
+
   <!-- Page Wrapper -->
   <div id="wrapper">

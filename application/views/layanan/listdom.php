@@ -25,7 +25,7 @@
         <!-- pesan berhasil tambah data -->
         <?= $this->session->flashdata('message');?>
 
-          <a href="<?= base_url('layanan/domisili'); ?>" class="btn btn-primary btn-sm mb-3">Kembali</a>
+          <a href="<?= base_url('layanan/domisili'); ?>" class="btn btn-primary btn-sm mb-3">Tambah Data</a>
          <!-- <a href="<?= base_url('arsip/pdfm');?>" class="btn btn-success btn-sm mb-3">Print Pdf</a>
           <a href="<?= base_url('arsip/cetak');?>" class="btn btn-warning btn-sm mb-3">Print</a> -->
 

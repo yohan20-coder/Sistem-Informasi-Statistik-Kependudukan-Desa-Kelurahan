@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="alamat">Alamat</label>
+                            <label for="alamat">Alamat Dusun</label>
                             <input type="text" class="form-control" name="alamat" value="<?= $ubah['alamat'];?>">
                             <?= form_error('alamat','<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
@@ -41,7 +41,7 @@
                     
 
                         <div class="form-group">
-                            <label for="kelurahan">Kelurahan</label>
+                            <label for="kelurahan">Desa</label>
                             <input type="text" class="form-control" name="kelurahan" value="<?= $ubah['kelurahan'];?>">
                             <?= form_error('kelurahan','<small class="text-danger pl-3">', '</small>'); ?>
                         </div>

@@ -179,4 +179,66 @@ class Penduduk_model extends CI_Model
           }
       }
 
+      //data statistik
+
+      //menurut agama
+
+      public function stat_agama(){
+        $this->db->select('id,agama, COUNT(agama) as total');
+        $this->db->group_by('agama'); 
+        $this->db->order_by('total', 'desc'); 
+        $hasil = $this->db->get_where('penduduk',['status'=> "Hidup"])->result_array();
+        return $hasil;
+      }
+
+      //menurut pekerjaan
+
+      public function stat_kerja(){
+        $this->db->select('id,pekerjaan, COUNT(pekerjaan) as total');
+        $this->db->group_by('pekerjaan'); 
+        $this->db->order_by('total', 'desc'); 
+        $hasil = $this->db->get_where('penduduk',['status'=> "Hidup"])->result_array();
+        return $hasil;
+      }
+
+       //menurut pendidikan
+
+       public function stat_pend(){
+        $this->db->select('id,pend, COUNT(pend) as total');
+        $this->db->group_by('pend'); 
+        $this->db->order_by('pend', 'ASC'); 
+        $hasil = $this->db->get_where('penduduk',['status'=> "Hidup"])->result_array();
+        return $hasil;
+      }
+
+        //menurut jenis kelamin
+
+        public function stat_jk(){
+            $this->db->select('id,jk, COUNT(jk) as total');
+            $this->db->group_by('jk'); 
+            $this->db->order_by('total', 'desc'); 
+            $hasil = $this->db->get_where('penduduk',['status'=> "Hidup"])->result_array();
+            return $hasil;
+          }
+
+          //menurut jenis kelamin
+
+        public function stat_status(){
+            $this->db->select('id,status, COUNT(status) as total');
+            $this->db->group_by('status'); 
+            $this->db->order_by('total', 'desc'); 
+            $hasil = $this->db->get('penduduk')->result_array();
+            return $hasil;
+          }
+      //menurut jenis lahir
+
+      public function stat_lahir(){
+        $this->db->select('id,tahun, COUNT(tahun) as total');
+        $this->db->group_by('tahun'); 
+        $this->db->order_by('tahun', 'ASC'); 
+        $hasil = $this->db->get('tb_lahir')->result_array();
+        return $hasil;
+      }
+
+
 }

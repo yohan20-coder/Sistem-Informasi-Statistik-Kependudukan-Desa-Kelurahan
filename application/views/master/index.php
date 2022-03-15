@@ -35,8 +35,8 @@
                             <th scope="col">No</th>
                             <th scope="col">No.Kartu Keluarga</th>
                             <th scope="col">Nama Kepala Keluarga</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">Kelurahan</th>
+                            <th scope="col">Alamat Dusun</th>
+                            <th scope="col">Desa</th>
                             <th scope="col">RT/RW</th>
                             <th scope="col">Action</th>
                         </tr>

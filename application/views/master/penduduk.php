@@ -26,8 +26,10 @@
         <?= $this->session->flashdata('message');?>
 
           <a href="<?= base_url('master/tambahpen'); ?>" class="btn btn-primary btn-sm mb-3">Tambah Data</a>
+          <a href="<?= base_url('master/excel_pen'); ?>" class="btn btn-success btn-sm mb-3">Export Excel</a>
           <!-- <a href="<?= base_url('arsip/pdfm');?>" class="btn btn-success btn-sm mb-3">Print Pdf</a> -->
-          <a href="<?= base_url('master/cetakpend');?>" target="_blank" class="btn btn-warning btn-sm mb-3">Print</a>
+          <!-- <a href="<?= base_url('master/cetakpend');?>" target="_blank" class="btn btn-warning btn-sm mb-3">Print</a> -->
+          <a href="<?= base_url('master/filterpend');?>" target="_blank" class="btn btn-warning btn-sm mb-3">Filter Data</a>
 
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -37,6 +39,7 @@
                             <th scope="col">No.KK</th>
                             <th scope="col">NIK</th>
                             <th scope="col">Jenis Kelamin</th>
+                            <th scope="col">Status</th>
                             <!-- <th scope="col">T.Lahir</th>
                             <th scope="col">Tgl Lahir</th>
                             <th scope="col">Agama</th>
@@ -54,6 +57,7 @@
                           <td><?= $sm['no_kk'] ?></td>
                           <td><?= $sm['nik'] ?></td>
                           <td><?= $sm['jk'] ?></td>
+                          <td><?= "Menetap" ?></td>
                           <!-- <td><?= $sm['tempatla'] ?></td>
                           <td><?= $sm['tglah'] ?></td>
                           <td><?= $sm['agama'] ?></td>

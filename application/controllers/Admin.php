@@ -56,6 +56,76 @@ class Admin extends CI_Controller
       $this->load->view('template/footer');
     }
 
+    // public function index()
+    // {
+    //    //mengambil data dari session di controller auth
+    //   $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    //   // var_dump($data['jml']);die;
+    //   $data['judul'] = 'Halaman Admin';
+    //   $this->load->view('template/header',$data);
+    //   $this->load->view('template/sidebar',$data);
+    //   $this->load->view('template/topbar',$data);
+    //   $this->load->view('admin/visi',$data);
+    //   $this->load->view('template/footer');
+    // }
+
+    public function stat_item()
+    {
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      // $data[total] = $this->Arsip_model->jmlmasuk();
+
+      $this->load->model('Penduduk_model','pen');
+      $data['tampil'] = $this->pen->stat_agama();
+      $data['peker'] = $this->pen->stat_kerja();
+      $data['pend'] = $this->pen->stat_pend();
+      $data['jk'] = $this->pen->stat_jk();
+      // var_dump($data['jml']);die;
+      $data['judul'] = 'Halaman Admin';
+      $this->load->view('template/header',$data);
+      $this->load->view('template/sidebar',$data);
+      $this->load->view('template/topbar',$data);
+      $this->load->view('admin/home',$data);
+      $this->load->view('template/footer');
+    }
+
+    public function status()
+    {
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      // $data[total] = $this->Arsip_model->jmlmasuk();
+
+      $this->load->model('Penduduk_model','pen');
+      $data['status'] = $this->pen->stat_status();
+      // var_dump($data['jml']);die;
+      $data['judul'] = 'Halaman Admin';
+      $this->load->view('template/header',$data);
+      $this->load->view('template/sidebar',$data);
+      $this->load->view('template/topbar',$data);
+      $this->load->view('admin/hal_stat',$data);
+      $this->load->view('template/footer');
+    }
+
+    public function lahir()
+    {
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      // $data[total] = $this->Arsip_model->jmlmasuk();
+
+      $this->load->model('Penduduk_model','pen');
+      $data['lahir'] = $this->pen->stat_lahir();
+      // var_dump($data['jml']);die;
+      $data['judul'] = 'Halaman Admin';
+      $this->load->view('template/header',$data);
+      $this->load->view('template/sidebar',$data);
+      $this->load->view('template/topbar',$data);
+      $this->load->view('admin/hal_lahir',$data);
+      $this->load->view('template/footer');
+    }
+
     public function role()
     {
        //mengambil data dari session di controller auth

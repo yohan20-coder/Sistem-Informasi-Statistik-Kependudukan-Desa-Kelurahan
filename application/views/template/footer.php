@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Web Irra <?= date('Y');?></span>
+            <span>Web Desa/Kelurahan <?= date('Y');?></span>
           </div>
         </div>
       </footer>

@@ -26,6 +26,7 @@
         <?= $this->session->flashdata('message');?>
 
           <a href="<?= base_url('master/tambahpeg'); ?>" class="btn btn-primary btn-sm mb-3">Tambah Data</a>
+          <a href="<?= base_url('master/excel_peg'); ?>" class="btn btn-success btn-sm mb-3">Export Excel</a>
           <!-- <a href="<?= base_url('arsip/pdfm');?>" class="btn btn-success btn-sm mb-3">Print Pdf</a>
           <a href="<?= base_url('arsip/cetak');?>" class="btn btn-warning btn-sm mb-3">Print</a> -->
 
@@ -58,7 +59,6 @@
                       </tr>
                   <?php $no++ ?>
                   <?php endforeach ?>
-
                     </tbody>
                 </table>
                

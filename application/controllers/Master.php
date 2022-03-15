@@ -172,7 +172,7 @@ public function tambah()
       $data['tampil'] = $this->pegawai->tampilpeg();
       
     //  var_dump($data['tampil']);die;
-      $data['judul'] = 'Halaman Data Pejabat Desa';
+      $data['judul'] = 'Halaman Data Pegawai Desa';
       $this->load->view('template/header',$data);
       $this->load->view('template/sidebar',$data);
       $this->load->view('template/topbar',$data);
@@ -288,6 +288,19 @@ public function tambah()
     redirect('master/pegawai');
   }
 
+     public function excel_peg()
+    {
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+       //memanggil model Master data
+       $this->load->model('Master_model','pegawai');
+       $data['tampil'] = $this->pegawai->tampilpeg();
+     
+      $this->load->view('master/excel_peg',$data);
+
+    }
+
   //Bagian penduduk
   public function penduduk()
     {
@@ -307,12 +320,87 @@ public function tambah()
       $this->load->view('template/footer');
     }
 
+    public function filterpend()
+    {
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      //memanggil model Master data
+      $data['kerja'] = $this->db->get('tb_kerja')->result_array();
+      
+    //  var_dump($data['tampil']);die;
+      $data['judul'] = 'Halaman Data Penduduk';
+      $this->load->view('template/header',$data);
+      $this->load->view('template/sidebar',$data);
+      $this->load->view('template/topbar',$data);
+      $this->load->view('master/filterpend',$data);
+      $this->load->view('template/footer');
+    }
+
+    public function item_agama()
+    {
+      //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      $agama = $this->input->post('agama');
+
+      $data['tampil'] = $this->db->get_where('penduduk',['agama'=>$agama, 'status'=>'Hidup'])->result_array();
+      
+    //  var_dump($data['tampil']);die;
+    $data['judul'] = 'Halaman Data Penduduk Menurut Agama';
+    $this->load->view('template/header',$data);
+    $this->load->view('template/sidebar',$data);
+    $this->load->view('template/topbar',$data);
+    $this->load->view('master/pend_agama',$data);
+    $this->load->view('template/footer');
+    }
+
+    public function item_kerja()
+    {
+      //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      $kerja = $this->input->post('kerja');
+
+      $data['tampil'] = $this->db->get_where('penduduk',['pekerjaan'=>$kerja, 'status'=>'Hidup'])->result_array();
+      
+    //  var_dump($data['tampil']);die;
+    $data['judul'] = 'Halaman Data Penduduk Menurut Pekerjaan';
+    $this->load->view('template/header',$data);
+    $this->load->view('template/sidebar',$data);
+    $this->load->view('template/topbar',$data);
+    $this->load->view('master/pend_kerja',$data);
+    $this->load->view('template/footer');
+    }
+
+    public function item_tingkat()
+    {
+      //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      $tingkat = $this->input->post('tingkat');
+
+      $data['tampil'] = $this->db->get_where('penduduk',['pend'=>$tingkat, 'status'=>'Hidup'])->result_array();
+      
+    //  var_dump($data['tampil']);die;
+    $data['judul'] = 'Halaman Data Penduduk Menurut Tingkat Pendidikan';
+    $this->load->view('template/header',$data);
+    $this->load->view('template/sidebar',$data);
+    $this->load->view('template/topbar',$data);
+    $this->load->view('master/pend_tingkat',$data);
+    $this->load->view('template/footer');
+    }
+
 public function tambahpen()
     {
        //mengambil data dari session di controller auth
       $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
       $data['tampil'] = $this->db->get('kartukel')->result_array();
+
+      $data['kerja'] = $this->db->get('tb_kerja')->result_array();
+
+      $data['rtw'] = $this->db->get('tb_rtw')->result_array();
       
  $this->form_validation->set_rules('nik', 'Nik', 'required|trim|is_unique[penduduk.nik]',[
       'required' => 'No. Nik Harus Diisi',
@@ -348,6 +436,7 @@ $this->form_validation->set_rules('rtw', 'RTW', 'required|trim',[
   'required' => 'Pekerjaan Harus Diisi'
 ]);
   
+$tanggal = date('d-m-Y');
  
   if($this->form_validation->run() == FALSE){
     $data['judul'] = 'Halaman Tambah Data Penduduk';
@@ -367,7 +456,9 @@ $this->form_validation->set_rules('rtw', 'RTW', 'required|trim',[
       'agama' => $this->input->post('agama'),
       'pend' => $this->input->post('pendidikan'),
       'pekerjaan' => $this->input->post('pekerjaan'),
-      'rtw' => $this->input->post('rtw')
+      'rtw' => $this->input->post('rtw'),
+      'status' =>'Hidup',
+      'tgl' =>$tanggal
   ];
    $this->db->insert('penduduk',$data);
    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil Diinput</div>');
@@ -382,6 +473,10 @@ public function ubahpen($id)
   $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
   $data['tampil'] = $this->db->get('kartukel')->result_array();
+
+  $data['kerja'] = $this->db->get('tb_kerja')->result_array();
+
+  $data['rtw'] = $this->db->get('tb_rtw')->result_array();
  
   $data['ubah'] = $this->Master_model->getUbahPen($id);
 
@@ -418,6 +513,8 @@ $this->form_validation->set_rules('rtw', 'RTW', 'required|trim',[
   'required' => 'Pekerjaan Harus Diisi'
 ]);
 
+$tanggal = date('d-m-Y');
+
 if($this->form_validation->run() == FALSE){
 $data['judul'] = 'Halaman Edit Data Penduduk';
 $this->load->view('template/header',$data);
@@ -436,7 +533,9 @@ $data = [
   'agama' => $this->input->post('agama'),
   'pend' => $this->input->post('pendidikan'),
   'pekerjaan' => $this->input->post('pekerjaan'),
-  'rtw' => $this->input->post('rtw')
+  'rtw' => $this->input->post('rtw'),
+  'status' =>'Hidup',
+  'tgl' =>$tanggal
 ];
 $this->db->where('id', $this->input->post('id'));
 $this->db->update('penduduk',$data);
@@ -464,12 +563,221 @@ $this->load->view('master/detpen',$data);
 $this->load->view('template/footer');
 }
 
+    public function excel_pen()
+    {
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-  public function hapuspen($id)
-  {
+       //memanggil model Master data
+       $this->load->model('Master_model','pend');
+       $data['tampil'] = $this->pend->tampilpen();
+     
+      $this->load->view('master/excel_pen',$data);
+
+    }
+
+
+public function hapuspen($id)
+{
     $this->Master_model->hapuspen($id);
     $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Berhasil DiHapus</div>');
     redirect('master/penduduk');
+}
+
+//function pekerjaan
+
+public function kerja()
+{
+   //mengambil data dari session di controller auth
+   $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+   //memanggil model Master data
+   $this->load->model('Master_model','kartu');
+   $data['tampil'] = $this->kartu->ker_tam();
+   
+ //  var_dump($data['tampil']);die;
+   $data['judul'] = 'Halaman Data Pekerjaan';
+   $this->load->view('template/header',$data);
+   $this->load->view('template/sidebar',$data);
+   $this->load->view('template/topbar',$data);
+   $this->load->view('master/kerja',$data);
+   $this->load->view('template/footer');
+}
+
+public function add_ker()
+{
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+      
+   $this->form_validation->set_rules('nama', 'Nama', 'required|trim',[
+      'required' => 'Nama Harus Diisi'
+  ]);
+   
+  if($this->form_validation->run() == FALSE){
+    $data['judul'] = 'Halaman Tambah Data Pekerjaan';
+    $this->load->view('template/header',$data);
+    $this->load->view('template/sidebar',$data);
+    $this->load->view('template/topbar',$data);
+    $this->load->view('master/add_ker',$data);
+    $this->load->view('template/footer');
+  }else{
+    $data = [
+    'pekerjaan' => $this->input->post('nama')
+  ];
+   $this->db->insert('tb_kerja',$data);
+   $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil Diinput</div>');
+   redirect('master/kerja');
+    }
   }
+
+  public function hapus_ker($id)
+  {
+    $this->Master_model->hapus_ker($id);
+    $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Berhasil DiHapus</div>');
+    redirect('master/kerja');
+  }
+
+
+  public function ubah_ker($id)
+  {
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+    $data['ubah'] = $this->Master_model->getUbah_ker($id);
+
+    $this->form_validation->set_rules('nama', 'Nama', 'required|trim',[
+      'required' => 'Nama Harus Diisi'
+  ]);
+
+
+  if($this->form_validation->run()==false){
+      $data['judul'] = 'Halaman Edit Data Pekerjaan';
+      $this->load->view('template/header',$data);
+      $this->load->view('template/sidebar',$data);
+      $this->load->view('template/topbar',$data);
+      $this->load->view('master/ubah_ker',$data);
+      $this->load->view('template/footer');
+    }else{
+      $data = [
+        'pekerjaan' => $this->input->post('nama')
+      ];     
+      $this->db->where('id', $this->input->post('id'));
+      $this->db->update('tb_kerja', $data);
+        $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil DiUbah</div>');
+      redirect('master/kerja');
+    }
+
+  } 
+
+  public function expor_ker()
+    {
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      $this->load->model('Master_model','kartu');
+      $data['tampil'] = $this->kartu->ker_tam();
+     
+      $this->load->view('master/cet_excel',$data);
+
+    }
+
+
+    //function rt/rw
+  public function rtw()
+  {
+    //mengambil data dari session di controller auth
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+    //memanggil model Master data
+    $this->load->model('Master_model','kartu');
+    $data['tampil'] = $this->kartu->rt_tam();
+    
+  //  var_dump($data['tampil']);die;
+    $data['judul'] = 'Halaman Data RT/RW Desa Detusoko Barat';
+    $this->load->view('template/header',$data);
+    $this->load->view('template/sidebar',$data);
+    $this->load->view('template/topbar',$data);
+    $this->load->view('master/tampil_rt',$data);
+    $this->load->view('template/footer');
+  }
+
+
+  public function add_rtw()
+  {
+        //mengambil data dari session di controller auth
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        
+    $this->form_validation->set_rules('rtw', 'Rtw', 'required|trim',[
+        'required' => 'Nama Harus Diisi'
+    ]);
+    
+    if($this->form_validation->run() == FALSE){
+      $data['judul'] = 'Halaman Tambah Data RT/RW';
+      $this->load->view('template/header',$data);
+      $this->load->view('template/sidebar',$data);
+      $this->load->view('template/topbar',$data);
+      $this->load->view('master/add_rtw',$data);
+      $this->load->view('template/footer');
+    }else{
+      $data = [
+      'rtw' => $this->input->post('rtw')
+    ];
+    $this->db->insert('tb_rtw',$data);
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil Diinput</div>');
+    redirect('master/rtw');
+      }
+    }
+
+    public function hapus_rtw($id)
+    {
+      $this->Master_model->hapus_rtw($id);
+      $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Berhasil DiHapus</div>');
+      redirect('master/rtw');
+    }
+
+    public function ubah_rtw($id)
+    {
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+  
+      $data['ubah'] = $this->Master_model->getUbah_rtw($id);
+  
+      $this->form_validation->set_rules('rtw', 'Rtw', 'required|trim',[
+        'required' => 'Nama Harus Diisi'
+    ]);
+  
+  
+    if($this->form_validation->run()==false){
+        $data['judul'] = 'Halaman Edit Data RT/RW';
+        $this->load->view('template/header',$data);
+        $this->load->view('template/sidebar',$data);
+        $this->load->view('template/topbar',$data);
+        $this->load->view('master/ubah_rtw',$data);
+        $this->load->view('template/footer');
+      }else{
+        $data = [
+          'rtw' => $this->input->post('rtw')
+        ];     
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('tb_rtw', $data);
+          $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Data Berhasil DiUbah</div>');
+        redirect('master/rtw');
+      }
+  
+    } 
+
+    public function expor_rtw()
+    {
+       //mengambil data dari session di controller auth
+      $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+      $this->load->model('Master_model','kartu');
+      $data['tampil'] = $this->kartu->rt_tam();
+     
+      $this->load->view('master/rtw_excel',$data);
+
+    }
+
+    public function domisili(){
+      redirect('layanan/listdom');
+    }
 
 }

@@ -87,8 +87,10 @@ class Layanan extends CI_Controller
         'alamat'  => $this->input->post('alamat_pej'),
         'nma_pen'=> $this->input->post('napen'),
         'umur' => $this->input->post('umur'),
+        'jk' => $this->input->post('jk'),
         'usaha' => $this->input->post('usaha'),
         'rt' =>  $this->input->post('rt'),
+        'agama' =>  $this->input->post('agama'),
         'alamat_pen' => $this->input->post('alamat')
     ];
      $this->db->insert('tb_usaha',$data);
@@ -154,7 +156,7 @@ class Layanan extends CI_Controller
    $data['tampil'] = $this->surat->cetak($id);
    
  //  var_dump($data['tampil']);die;
-   $this->load->view('layanan/cetakk',$data);
+   $this->load->view('layanan/suratusaha',$data);
  }
 
  public function hapus($id)
@@ -261,6 +263,7 @@ class Layanan extends CI_Controller
         'jabatan' => $this->input->post('jabatan'),
         'alamat'  => $this->input->post('alamat_pej'),
         'nma_pen'=> $this->input->post('napen'),
+        'jk' => $this->input->post('jk'),
         'umur' => $this->input->post('umur'),
         'rt' =>  $this->input->post('rt'),
         'ttl' => $this->input->post('ttl'),

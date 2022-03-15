@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-3">
             <div class="card" style="height: 22rem;">
-                <img class="card-img-top" src="<?= base_url('assets/');?>img/surat.jpg" height="210">
+                <img class="card-img-top" src="<?= base_url('assets/');?>img/buku.PNG" height="210">
                 <div class="card-body">
                     <p class="text-center">Surat Keterangan Usaha</p>
                     <table>
@@ -22,7 +22,7 @@
 
             <div class="col-md-3">
             <div class="card" style="height: 22rem;">
-                <img class="card-img-top" src="<?= base_url('assets/');?>img/surat.jpg" height="210">
+                <img class="card-img-top" src="<?= base_url('assets/');?>img/buku.PNG" height="210">
                 <div class="card-body">
                     <p class="text-center">Surat Domisili</p>
                     <table>
@@ -35,9 +35,9 @@
                 </div>  
             </div>
 
-               <div class="col-md-3">
+               <!-- <div class="col-md-3">
             <div class="card" style="height: 22rem;">
-                <img class="card-img-top" src="<?= base_url('assets/');?>img/surat.jpg" height="210">
+                <img class="card-img-top" src="<?= base_url('assets/');?>img/buku.PNG" height="210">
                 <div class="card-body">
                     <p class="text-center">Surat Keluar</p>
                     <table>
@@ -48,11 +48,11 @@
                     </table>
                 </div>
                 </div>  
-            </div>
+            </div> -->
 
-               <div class="col-md-3">
+               <!-- <div class="col-md-3">
             <div class="card" style="height: 22rem;">
-                <img class="card-img-top" src="<?= base_url('assets/');?>img/surat.jpg" height="210">
+                <img class="card-img-top" src="<?= base_url('assets/');?>img/buku.PNG" height="210">
                 <div class="card-body">
                     <p class="text-center">Surat Sertifikat</p>
                     <table>
@@ -63,11 +63,11 @@
                     </table>
                 </div>
                 </div>  
-            </div>
+            </div> -->
 
             <div class="col-md-3">
             <div class="card" style="height: 22rem;">
-                <img class="card-img-top" src="<?= base_url('assets/');?>img/surat.jpg" height="210">
+                <img class="card-img-top" src="<?= base_url('assets/');?>img/buku.PNG" height="210">
                 <div class="card-body">
                     <p class="text-center">Surat Keterangan<br>Tidak Mampu</p>
                     <table>

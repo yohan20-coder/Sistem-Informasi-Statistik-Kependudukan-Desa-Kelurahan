@@ -93,6 +93,7 @@
                                 <option value="SD" <?php if($ubah['pend']=='SD'){echo "selected";} ?>>SD</option>
                                 <option value="SMP" <?php if($ubah['pend']=='SMP'){echo "selected";} ?>>SMP</option>
                                 <option value="SMA" <?php if($ubah['pend']=='SMA'){echo "selected";} ?>>SMA</option>
+                                <option value="Diploma" <?php if($ubah['pend']=='Diploma'){echo "selected";} ?>>Diploma</option>
                                 <option value="Sarjana(S1)" <?php if($ubah['pend']=='Sarjana(S1)'){echo "selected";} ?>>Sarjana(S1)</option>
                                 <option value="Magister(S2)" <?php if($ubah['pend']=='Magister(S2)'){echo "selected";} ?>>Magister(S2)</option>
                                 <option value="Doktor(S3)" <?php if($ubah['pend']=='Doktor(S3)'){echo "selected";} ?>>Doktor(S3)</option>
@@ -102,17 +103,47 @@
                     </div>
 
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                             <label for="pekerjaan">Pekerjaan</label>
                             <input type="text" class="form-control" name="pekerjaan" value="<?= $ubah['pekerjaan'] ?>">
                             <?= form_error('pekerjaan','<small class="text-danger pl-3">', '</small>'); ?>
-                        </div>
+                        </div> -->
 
-                        <div class="form-group">
+                    <div class="form-group">
+                    <label for="nokk">Pekerjaan</label>
+                        <select name="pekerjaan"  class="js-example-basic-single">
+                            <option value=""></option>
+                            <?php foreach($kerja as $m): ?>
+                                <option value="<?= $m['pekerjaan'] ?>"
+                                <?php if($m['pekerjaan'] == $ubah['pekerjaan']){
+                                    echo 'selected';
+                                    }?>
+                                ><?= $m['pekerjaan'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <?= form_error('pekerjaan','<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+
+                        <!-- <div class="form-group">
                             <label for="pekerjaan">RT/RW</label>
                             <input type="text" class="form-control" name="rtw" value="<?= $ubah['rtw'] ?>">
                             <?= form_error('rtw','<small class="text-danger pl-3">', '</small>'); ?>
-                        </div>
+                        </div> -->
+
+                <div class="form-group">
+                    <label for="nokk">RT/RW</label>
+                        <select name="rtw"  class="js-example-basic-single">
+                            <option value=""></option>
+                            <?php foreach($rtw as $m): ?>
+                                <option value="<?= $m['rtw'] ?>"
+                                <?php if($m['rtw'] == $ubah['rtw']){
+                                    echo 'selected';
+                                    }?>
+                                ><?= $m['rtw'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <?= form_error('rtw','<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Save</button>

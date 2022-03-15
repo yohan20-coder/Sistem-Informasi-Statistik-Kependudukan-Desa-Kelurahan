@@ -157,7 +157,7 @@
                         
 
                     <div class="form-group">
-                            <label for="golongan">Umur</label>
+                            <label for="golongan">Agama</label>
                             <input type="text" class="form-control" name="umur">
                             <?= form_error('umur','<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
@@ -165,7 +165,7 @@
 
                        
                         <div class="form-group">
-                            <label for="golongan">RT</label>
+                            <label for="golongan">Pekerjaan</label>
                             <input type="text" class="form-control" name="rt">
                             <?= form_error('rt','<small class="text-danger pl-3">', '</small>'); ?>
                         </div>

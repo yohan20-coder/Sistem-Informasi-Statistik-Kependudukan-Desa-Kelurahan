@@ -123,11 +123,6 @@
                         </div>           
 
                        
-                        <div class="form-group">
-                            <label for="golongan">RT</label>
-                            <input type="text" class="form-control" name="rt">
-                            <?= form_error('rt','<small class="text-danger pl-3">', '</small>'); ?>
-                        </div>
                         
 
                         <div class="form-group">
@@ -138,9 +133,16 @@
 
 
                         <div class="form-group">
-                            <label for="jabatan">Alamat (Nama Jalan/Dusun)</label>
+                            <label for="jabatan">Keluhan Tidak Mampu (Sebutkan Secara Rinci)</label>
                             <textarea class="form-control" name="alamat" rows="4"></textarea>
                             <?= form_error('alamat','<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label for="golongan">Batas Tanggal Surat</label>
+                            <input type="date" class="form-control" name="rt">
+                            <?= form_error('rt','<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
 
                     

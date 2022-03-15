@@ -24,7 +24,7 @@
   <div class="kotak">
 <style>
 body{
-  background : url("assets/img/desa.jpg");  
+  background : url("assets/img/bg4.jpeg");  
   background-size: cover;
   /*background: #d46608;*/
 </style> 

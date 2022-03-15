@@ -22,24 +22,24 @@
 				<tr style="height:104.75pt">
 					<td style="width:100.95pt; border:0.75pt solid #000000; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top">
 						<p>
-							<img src="<?= base_url('surat/surat-ket-usaha.001.jpg'); ?>" width="105" height="96" alt="" style="margin-right:9pt; margin-left:9pt; float:left" />
+							<img src="<?= base_url('surat/ende.jpg'); ?>" width="105" height="96" alt="" style="margin-right:9pt; margin-left:9pt; float:left" />
 						</p>
 					</td>
 					<td colspan="4" style="width:356.25pt; border:0.75pt solid #000000; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top">
 						<p style="margin-bottom:0pt; text-align:center; line-height:150%; font-size:12pt">
-							<strong><span style="font-family:'Calibri Light'; ">PEMERINTAH KABUPATEN NGADA</span></strong>
+							<strong><span style="font-family:'Calibri Light'; ">PEMERINTAH KABUPATEN ENDE</span></strong>
 						</p>
 						<p style="margin-bottom:0pt; text-align:center; line-height:150%; font-size:12pt">
-							<strong><span style="font-family:'Calibri Light'; ">KECAMATAN BAJAWA UTARA</span></strong>
+							<strong><span style="font-family:'Calibri Light'; ">KECAMATAN NANGAPENDA</span></strong>
 						</p>
 						<p style="margin-bottom:0pt; text-align:center; line-height:150%; font-size:12pt">
-							<strong><span style="font-family:'Calibri Light'; ">DESA ULUWAE</span></strong>
+							<strong><span style="font-family:'Calibri Light'; ">DESA SANGGAORHORHO</span></strong>
 						</p>
 						<p style="margin-bottom:0pt; text-align:center; line-height:150%; font-size:12pt">
-							<strong><span style="font-family:'Calibri Light'; ">Jln. Ranamoe – Teni</span></strong>
+							<strong><span style="font-family:'Calibri Light'; ">Jln. Ende – Bajawa</span></strong>
 						</p>
 						<p style="text-align:center; line-height:108%; font-size:12pt">
-							<strong><span style="font-family:'Bookman Old Style'; ">M A L A W A R U</span></strong>
+							<strong><span style="font-family:'Bookman Old Style'; ">SANGGARHORHO</span></strong>
 						</p>
 					</td>
 				</tr>
@@ -183,7 +183,7 @@
 				<tr>
 					<td colspan="5" style="width:468pt; border:0.75pt solid #000000; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top">
 						<p style="margin-bottom:0pt; text-align:justify; line-height:150%; font-size:12pt">
-							<span style="font-family:'Calibri Light'">Adalah benar-benar Warga Masyarakat RT  <?= $tampil['rt'] ?>, Desa Uluwae yang membuka jenis <?= $tampil['usaha'] ?> di Desa Uluwae Kecamatan Bajawa Utara Kabupaten Ngada.</span>
+							<span style="font-family:'Calibri Light'">Adalah benar-benar Warga Masyarakat RT  <?= $tampil['rt'] ?>, Desa Sanggarhorho yang membuka jenis <?= $tampil['usaha'] ?> di Desa Sanggarhorho Kecamatan Nangapenda Kabupaten Ende.</span>
 						</p>
 					</td>
 				</tr>
@@ -202,14 +202,14 @@
 					</td>
 					<td style="width:207.45pt; border:0.75pt solid #000000; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top">
 						<p style="margin-bottom:0pt; text-align:center; line-height:150%; font-size:12pt">
-							<span style="font-family:'Calibri Light'">Malawaru, <?= date('d-m-Y') ?></span>
+							<span style="font-family:'Calibri Light'">Sanggarhorho, <?= date('d-m-Y') ?></span>
 						</p>
 					</td>
 				</tr>
 				<tr>
 					<td style="width:207.45pt; border:0.75pt solid #000000; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top">
 						<p style="margin-bottom:0pt; text-align:center; line-height:normal; font-size:12pt">
-							<span style="font-family:'Calibri Light'">Kepala</span><span style="font-family:'Calibri Light'">&#xa0; </span><span style="font-family:'Calibri Light'">Desa Uluwae</span>
+							<span style="font-family:'Calibri Light'">Kepala</span><span style="font-family:'Calibri Light'">&#xa0; </span><span style="font-family:'Calibri Light'">Desa Sanggarhorho</span>
 						</p>
 					</td>
 				</tr>
@@ -223,7 +223,7 @@
 				<tr>
 					<td style="width:207.45pt; border:0.75pt solid #000000; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top">
 						<p style="text-align:center; line-height:108%; font-size:12pt">
-							<strong><u><span style="font-family:'Calibri Light'; ">Fabianus Rue Rani</span></u></strong>
+							<strong><u><span style="font-family:'Calibri Light'; ">Marcelinus Lipi</span></u></strong>
 						</p>
 					</td>
 				</tr>

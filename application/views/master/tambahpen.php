@@ -86,6 +86,7 @@
                                 <option value="SD">SD</option>
                                 <option value="SMP">SMP</option>
                                 <option value="SMA">SMA</option>
+                                <option value="Diploma">Diploma</option>
                                 <option value="Sarjana(S1)">Sarjana(S1)</option>
                                 <option value="Magister(S2)">Magister(S2)</option>
                                 <option value="Doktor(S3)">Doktor(S3)</option>
@@ -95,17 +96,39 @@
                     </div>
 
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                             <label for="pekerjaan">Pekerjaan</label>
                             <input type="text" class="form-control" name="pekerjaan">
                             <?= form_error('pekerjaan','<small class="text-danger pl-3">', '</small>'); ?>
-                        </div>
+                        </div> -->
 
-                        <div class="form-group">
+                <div class="form-group">
+                    <label for="nokk">Pekerjaan</label>
+                        <select name="pekerjaan" class="js-example-basic-single">
+                            <option value="">Pilih</option>
+                            <?php foreach($kerja as $m): ?>
+                                <option value="<?= $m['pekerjaan'] ?>"><?= $m['pekerjaan'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <?= form_error('pekerjaan','<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+
+                        <!-- <div class="form-group">
                             <label for="rtw">RT/RW</label>
                             <input type="text" class="form-control" name="rtw">
                             <?= form_error('rtw','<small class="text-danger pl-3">', '</small>'); ?>
-                        </div>
+                        </div> -->
+
+                <div class="form-group">
+                    <label for="nokk">RT/RW</label>
+                        <select name="rtw" class="js-example-basic-single">
+                            <option value="">Pilih</option>
+                            <?php foreach($rtw as $m): ?>
+                                <option value="<?= $m['rtw'] ?>"><?= $m['rtw'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <?= form_error('rtw','<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
 
 
                         <div class="form-group">
